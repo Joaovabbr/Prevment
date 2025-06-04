@@ -5,7 +5,7 @@ import urllib.parse
 # ❗️ Coloque seus dados aqui diretamente
 TW_USER = "larifdanadinha"
 TW_EMAIL = "mariaebs@al.insper.edu.br"
-TW_PASS = "m3U?okGS33"
+TW_PASS = "InsperData2025"
 
 # Entrada da busca
 termo = input("🔎 Digite o termo de busca no Twitter: ")
