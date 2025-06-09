@@ -6,6 +6,7 @@ import facebook_consts
 import urllib.parse
 import re
 from sqlite_handler import SQLiteHandler
+from pathlib import Path
 load_dotenv()
 
 
@@ -35,6 +36,7 @@ busca = 'Zara'
 tema = 'Roupas'
 busca_quoted = urllib.parse.quote(busca + " " + tema)  
 default_browser_path = r"C:\Users\joaov\AppData\Local\Programs\Opera GX\opera.exe"
+browser_data_path = Path(__file__).parent / "browser_data"
 
 def click_if_visible(element, timeout=2000):
     try:
@@ -113,7 +115,7 @@ def process_facebook_post(raw_text):
 def run(playwright: Playwright):
 
     try:
-        navegador = playwright.chromium.launch_persistent_context(user_data_dir="./browser_data",  # pode ser outro diretório
+        navegador = playwright.chromium.launch_persistent_context(user_data_dir=browser_data_path,  # pode ser outro diretório
             headless=True,
             executable_path=default_browser_path,)
         page = navegador.new_page()
