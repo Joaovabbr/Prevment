@@ -1,3 +1,7 @@
+import sys
+from pathlib import Path
+ROOT_DIR = Path(__file__).resolve().parents[1]
+sys.path.append(str(ROOT_DIR))
 from playwright.sync_api import sync_playwright, Playwright
 from dotenv import load_dotenv
 import os
@@ -32,10 +36,11 @@ all_posts = {
     "coments": [],
     "raw_posts_text": []
 }
-busca = 'Zara'
+busca = 'Renner'
 tema = 'Roupas'
 busca_quoted = urllib.parse.quote(busca + " " + tema)  
-default_browser_path = r"C:\Users\joaov\AppData\Local\Programs\Opera GX\opera.exe"
+default_browser_path = os.getenv("OPERA_PATH")
+
 browser_data_path = Path(__file__).parent / "browser_data"
 
 def click_if_visible(element, timeout=2000):
