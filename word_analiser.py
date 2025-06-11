@@ -14,6 +14,7 @@ def word_analyser(texto):
     :param texto: Texto a ser analisado.
     :return: Resultado da análise de sentimento.
     """
+    if len(texto) > 2000: 
+        texto = texto[:2000]
     resultado = sentiment_pipeline(texto)
     return resultado
-

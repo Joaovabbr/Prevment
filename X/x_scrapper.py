@@ -15,7 +15,7 @@ load_dotenv()
 user = os.getenv("TW_USER")
 email = os.getenv("TW_EMAIL")
 pwd = os.getenv("TW_PASSWORD")
-default_browser_path = os.getenv("OPERA_PATH")
+default_browser_path = os.getenv("BROWSER_PATH")
 
 sqlite = SQLiteHandler("./x/x_posts.db")
 sqlite.setup_table("posts", {
@@ -29,12 +29,12 @@ sqlite.setup_table("posts", {
     "views": "INTEGER"
 })
 
-termo = 'Nike '
-tema = 'Tênis'
+termo = 'OpenAi'
+tema = ''
 termo_url = urllib.parse.quote(termo + ' ' + tema)
 search_url = f"https://x.com/search?q={termo_url}&src=typed_query&f=live"
 browser_data_path = Path(__file__).parent / "browser_data"
-QTD_POSTS = 500
+QTD_POSTS = 700
 TIMEOUT = 1000
 posts_text = []
 

@@ -70,6 +70,17 @@ class SQLiteHandler:
         
         return hash_id
     
+    def news_id(self, title, url, source, time):
+        """
+        Generate a unique ID for news articles based on title, URL, source, and time.
+        :param title: Title of the news article.
+        :param url: URL of the news article.
+        :param source: Source of the news article.
+        :param time: Time of the news article.
+        :return: A unique ID string.
+        """
+        base = f"{title}_{url}_{source}_{time}"
+        return hashlib.md5(base.encode('utf-8')).hexdigest()
 
     def insert_data(self, table_name, data:dict):
         """

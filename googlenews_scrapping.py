@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-import json
 
 url = 'https://news.google.com/search?q=zara&hl=pt-BR&gl=BR&ceid=BR:pt-419'
 
@@ -43,6 +42,3 @@ if response.status_code == 200:
     print(df)
 else:
     print('Erro na requisição:', response.status_code)
-
-with open("dados/dados_google.json", "w", encoding="utf-8") as arquivo:
-    json.dump(dados, arquivo, ensure_ascii=False, indent=4)

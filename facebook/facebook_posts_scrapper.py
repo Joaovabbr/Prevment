@@ -36,10 +36,10 @@ all_posts = {
     "coments": [],
     "raw_posts_text": []
 }
-busca = 'Renner'
-tema = 'Roupas'
+busca = 'Openai'
+tema = ''
 busca_quoted = urllib.parse.quote(busca + " " + tema)  
-default_browser_path = os.getenv("OPERA_PATH")
+default_browser_path = os.getenv("BROWSER_PATH")
 
 browser_data_path = Path(__file__).parent / "browser_data"
 
@@ -137,7 +137,7 @@ def run(playwright: Playwright):
         if "two_step_verification" in page.url:
             input("Press Enter after completing two-step verification...")
         page.goto(f"https://www.facebook.com/search/posts/?q={busca_quoted}")
-        while len(all_posts["posts_text"]) < 100:
+        while len(all_posts["posts_text"]) < 500:
             posts_visiveis = [post for post in page.locator("div[class='x1yztbdb x1n2onr6 xh8yej3 x1ja2u2z']").all() if len(post.all_inner_texts()[0]) > 0]
             print("Posts adicionados:", len(all_posts["posts_text"]))
             for post in posts_visiveis:
